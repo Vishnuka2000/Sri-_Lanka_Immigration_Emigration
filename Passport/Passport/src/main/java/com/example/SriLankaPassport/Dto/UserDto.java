@@ -10,7 +10,7 @@ public class UserDto {
     private String username;
     private String password;
     private String email;
-    private String Role_id;
+    private Long roleId; // Fixed type and naming
     private String phoneNumber;
     private String firstName;
     private String lastname;
