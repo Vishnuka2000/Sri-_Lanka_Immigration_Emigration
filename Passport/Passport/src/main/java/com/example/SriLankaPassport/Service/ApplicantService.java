@@ -4,4 +4,5 @@ import com.example.SriLankaPassport.Dto.ApplicantDto;
 
 public interface ApplicantService {
 
-  ApplicantDto CreateApplicant(ApplicantDto dto);}
+  ApplicantDto CreateApplicant(ApplicantDto dto);
+}

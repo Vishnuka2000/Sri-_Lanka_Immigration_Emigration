@@ -19,7 +19,7 @@ public class UserServiceImpl  implements UserService {
         dto.setPassword(user.getPassword());
         dto.setEmail(user.getEmail());
         dto.setFirstName(user.getFirstName());
-        dto.setLastname(user.getLastName());
+        dto.setLastName(user.getLastName());
         dto.setPhoneNumber(user.getPhoneNumber());
         if (user.getRole() != null) {
             dto.setRoleId(user.getRole().getId());
@@ -35,7 +35,7 @@ public class UserServiceImpl  implements UserService {
         user.setPassword(dto.getPassword());
         user.setEmail(dto.getEmail());
         user.setFirstName(dto.getFirstName());
-        user.setLastName(dto.getLastname());
+        user.setLastName(dto.getLastName());
         user.setPhoneNumber(dto.getPhoneNumber());
         if (dto.getRoleId() != null) {
             Role role = new Role();

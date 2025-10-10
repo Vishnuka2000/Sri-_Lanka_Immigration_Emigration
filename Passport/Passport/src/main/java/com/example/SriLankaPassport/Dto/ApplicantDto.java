@@ -1,7 +1,9 @@
 package com.example.SriLankaPassport.Dto;
 
+import com.example.SriLankaPassport.Enum.ApplicationType;
 import com.example.SriLankaPassport.Enum.DeliveryMethod;
 import com.example.SriLankaPassport.Enum.Gender;
+import com.example.SriLankaPassport.Enum.PassportType;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,13 +21,13 @@ public class ApplicantDto {
     private Long id;
     private String FirstName;
     private String LastName;
-    private Long NIC;
+    private String NIC;
     private LocalDate DOB;
     private String Applicant_id;
     private Gender gender;
     private String POB;
     private String Nationality;
-    private Long ContactNo;
+    private String ContactNo;
     private String Email;
     private String address01;
     private String address02;
@@ -33,15 +35,18 @@ public class ApplicantDto {
     private Long districtId;
     private String districtName;
 
-    private Long provinceId;
+    private Long province_id;
     private String ProvinceName;
     private String postalCode;
+    private PassportType passportType;
 
-    private List<Long> PassportTypeId;
-    private List<String> PassportTypeName;
+//    private List<Long> PassportTypeId;
+//    private List<String> PassportTypeName;
 
-    private Long  applicationTypeId;
-    private String applicationType;
+    private ApplicationType applicationType;
+
+//    private Long  applicationTypeId;
+//    private String applicationType;
 
     private DeliveryMethod deliveryMethod;
 

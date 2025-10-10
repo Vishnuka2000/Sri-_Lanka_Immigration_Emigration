@@ -1,7 +1,9 @@
 package com.example.SriLankaPassport.Entity;
 
+import com.example.SriLankaPassport.Enum.ApplicationType;
 import com.example.SriLankaPassport.Enum.DeliveryMethod;
 import com.example.SriLankaPassport.Enum.Gender;
+import com.example.SriLankaPassport.Enum.PassportType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,16 +25,17 @@ public class Applicant {
     private Long id;
     private String FirstName;
     private String LastName;
-    private Long NIC;
+    private String NIC;
     private LocalDate DOB;
-    private String Applicant_id;
+    @Column(unique = true)
+    private String  applicantId;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
     private String POB;//place of birth
     private String Nationality;
-    private Long ContactNo;
+    private String ContactNo;
     private String Email;
 
     private String address01;
@@ -52,16 +55,18 @@ public class Applicant {
 //   @ManyToMany(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
 //   @JoinColumn(name="passport_id")
 //   private PassportType passportType;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "applicant_passport_type",
-            joinColumns = @JoinColumn(name = " Applicant_id"),
-            inverseJoinColumns = @JoinColumn(name = "passport_id")
-    )
-    private Set<PassportType> passportType = new HashSet<>();
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name = "applicant_passport_type",
+//            joinColumns = @JoinColumn(name = " Applicant_id"),
+//            inverseJoinColumns = @JoinColumn(name = "passport_id")
+//    )
+//    private Set<PassportType> passportType = new HashSet<>();
 
-    @ManyToOne(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
-    @JoinColumn(name="Application_id")
+    @Enumerated(EnumType.STRING)
+    private PassportType passportType;
+
+    @Enumerated(EnumType.STRING)
     private ApplicationType applicationType;
 
     @Enumerated(EnumType.STRING)
@@ -70,7 +75,5 @@ public class Applicant {
     @ManyToOne(fetch =FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="branch_id")
     private Branch Branch;
-
-
 
 }
